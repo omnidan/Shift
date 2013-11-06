@@ -1,3 +1,8 @@
+.content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
 .row .shift {
     line-height: 50px;
     text-align: center;
@@ -25,7 +30,7 @@
 .row .shiftadd {
     position: absolute;
     left: 0;
-    top: 5px;
+    top: 10px;
 }
 
 .row .shiftadd-button {

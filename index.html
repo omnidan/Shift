@@ -22,48 +22,59 @@
 </head>
 
 <body>
-<div class="container">
-    <h3>Shift Test</h3>
-    <div class="row">
-        <div class="col-md-4 shift shift-1">Shift 1 (0-8)</div>
-        <div class="col-md-4 shift shift-2">Shift 2 (8-16)</div>
-        <div class="col-md-4 shift shift-3">Shift 3 (16-24)</div>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Shift</a>
+        </div>
     </div>
-    <div class="row hidden-xs hidden-sm">
-        <div class="col-md-1 time">0</div>
-        <div class="col-md-1 time">2</div>
-        <div class="col-md-1 time">4</div>
-        <div class="col-md-1 time">6</div>
-        <div class="col-md-1 time">8</div>
-        <div class="col-md-1 time">10</div>
-        <div class="col-md-1 time">12</div>
-        <div class="col-md-1 time">14</div>
-        <div class="col-md-1 time">16</div>
-        <div class="col-md-1 time">18</div>
-        <div class="col-md-1 time">20</div>
-        <div class="col-md-1 time">22</div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="input-group shiftadd">
-                <input type="text" class="form-control" placeholder="New shift">
-                <div class="input-group-btn">
-                    <button id="dropdown-button" type="button" class="btn btn-default dropdown-toggle dropdown-button" data-toggle="dropdown">
-                        1h <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right">
-                        <li><a onclick="setDropdown(1)">1h</a></li>
-                        <li><a onclick="setDropdown(2)">2h</a></li>
-                        <li><a onclick="setDropdown(3)">3h</a></li>
-                    </ul>
-                    <button type="button" class="btn btn-success shiftadd-button">
-                        <span class="glyphicon glyphicon-plus"></span>
-                    </button>
+</div> <!-- /navbar -->
+
+<div class="content">
+    <div class="container">
+        <h2>Your shifts</h2>
+        <div class="row">
+            <div class="col-md-4 shift shift-1">Shift 1 (0-8)</div>
+            <div class="col-md-4 shift shift-2">Shift 2 (8-16)</div>
+            <div class="col-md-4 shift shift-3">Shift 3 (16-24)</div>
+        </div>
+        <div class="row hidden-xs hidden-sm">
+            <div class="col-md-1 time">0</div>
+            <div class="col-md-1 time">2</div>
+            <div class="col-md-1 time">4</div>
+            <div class="col-md-1 time">6</div>
+            <div class="col-md-1 time">8</div>
+            <div class="col-md-1 time">10</div>
+            <div class="col-md-1 time">12</div>
+            <div class="col-md-1 time">14</div>
+            <div class="col-md-1 time">16</div>
+            <div class="col-md-1 time">18</div>
+            <div class="col-md-1 time">20</div>
+            <div class="col-md-1 time">22</div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="input-group shiftadd">
+                    <input type="text" class="form-control" placeholder="New shift">
+                    <div class="input-group-btn">
+                        <button id="dropdown-button" type="button" class="btn btn-default dropdown-toggle dropdown-button" data-toggle="dropdown">
+                            1h <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a onclick="setDropdown(1)">1h</a></li>
+                            <li><a onclick="setDropdown(2)">2h</a></li>
+                            <li><a onclick="setDropdown(3)">3h</a></li>
+                        </ul>
+                        <button type="button" class="btn btn-success shiftadd-button">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div> <!-- /container -->
+    </div> <!-- /container -->
+</div> <!-- /content -->
 
 <!-- JavaScript placed at the end of the document so the pages load faster -->
 <script src="js/jquery-2.0.3.js"></script>
