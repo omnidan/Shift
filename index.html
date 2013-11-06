@@ -88,6 +88,8 @@
 <script>
     var hour = 0;
 
+    var shiftNext = false;
+
     var shifts = [
         ["Shift 1", 4],
         ["Shift 2", 4],
@@ -104,7 +106,12 @@
     function addShift(name, style, length, count)
     {
         var shft = "";
-        shft += '<div class="col-md-' + (length/2) + ' shift shift-' + style  + '">';
+        shft += '<div class="col-md-' + (length/2) + ' shift shift-' + style;
+        if (shiftNext == true) {
+            shft += ' shift-half';
+            shiftNext = false;
+        }
+        shft += '">';
         shft += '<input id="checkbox' + count + '" type="checkbox">';
         shft += '<label for="checkbox' + count + '">' + name + ' (' + hour + '-' + (hour+length) + ')</label>';
         shft += '</div>';
@@ -121,7 +128,8 @@
     {
         hour = parseInt(start);
         if (hour > 0) {
-            $("#shifts").append('<div class="col-md-' + Math.floor(hour/2) + '"></div>');
+            if (hour >= 2) $("#shifts").append('<div class="col-md-' + Math.floor(hour/2) + '"></div>');
+            if ((hour % 2) != 0) shiftNext = true;
         }
         for (var i=0; i<shifts.length; i++)
         {
@@ -133,7 +141,9 @@
     function reShift()
     {
         clearAll();
-        shiftAll(parseInt($("#shiftstart-time").val()));
+        var start = parseInt($("#shiftstart-time").val());
+        if (isNaN(start)) start = 0;
+        shiftAll(start);
     }
 
     $(document).ready(function() {
