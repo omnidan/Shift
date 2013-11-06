@@ -8,6 +8,65 @@
     text-align: center;
 }
 
+.row .shift input[type=checkbox] {
+    display: none;
+}
+
+.row .shift label {
+    position: relative;
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.row .shift label:before {
+    content: "";
+    position: relative;
+    top: 12px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+    opacity: 0.35;
+    border: 0;
+}
+
+.row .shift input[type=checkbox]:checked + label:before {
+    content: '\2714';
+    opacity: 0.5;
+    top: 0;
+    line-height: 15px;
+    cursor: pointer;
+}
+/*
+.row .shift input[type=checkbox]:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 3px;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    background-color: #ffffff;
+    opacity: 0.75;
+    border: 0;
+}
+
+.row .shift input[type=checkbox]:checked {
+    content: "\e08a";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 15px;
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+}*/
+
 .row .shift-1 {
     background-color: #2ecc71;
 }
