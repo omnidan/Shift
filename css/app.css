@@ -3,6 +3,10 @@
     padding-bottom: 50px;
 }
 
+.shifts {
+    background-color: #bdc3c7;
+}
+
 .row .shift {
     line-height: 50px;
     text-align: center;
@@ -84,6 +88,12 @@
     margin: 0;
     padding: 0 0 0 3px;
     border-left: 1px solid #808080;
+}
+
+.row .shiftstart {
+    position: relative;
+    left: -15px;
+    margin-bottom: 10px;
 }
 
 .row .shiftadd {

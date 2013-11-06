@@ -35,16 +35,16 @@
     <div class="container">
         <h2>Your shifts</h2>
         <div class="row">
-            <div class="col-md-4 shift shift-1">
-                <input id="checkbox1" type="checkbox"><label for="checkbox1">Shift 1 (0-8)</label>
-            </div>
-            <div class="col-md-4 shift shift-2">
-                <input id="checkbox2" type="checkbox"><label for="checkbox2">Shift 2 (8-16)</label>
-            </div>
-            <div class="col-md-4 shift shift-3"><input id="checkbox3" type="checkbox">
-                <label for="checkbox3">Shift 3 (16-24)</label>
+            <div class="col-md-2 shiftstart">
+                <div class="input-group">
+                    <input id="shiftstart-time" type="text" class="form-control" placeholder="0">
+                    <div class="input-group-btn">
+                        <button type="button" onclick="reShift()" class="btn btn-default">Go!</button>
+                    </div>
+                </div>
             </div>
         </div>
+        <div id="shifts" class="row shifts"></div>
         <div class="row hidden-xs hidden-sm">
             <div class="col-md-1 time">0</div>
             <div class="col-md-1 time">2</div>
@@ -68,9 +68,9 @@
                             1h <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu pull-right">
-                            <li><a onclick="setDropdown(1)">1h</a></li>
-                            <li><a onclick="setDropdown(2)">2h</a></li>
-                            <li><a onclick="setDropdown(3)">3h</a></li>
+                            <li><a onclick="setDropdown(1)">2h</a></li> <!-- TODO: Allow tasks that are not 2/4/6h long -->
+                            <li><a onclick="setDropdown(2)">4h</a></li>
+                            <li><a onclick="setDropdown(3)">6h</a></li>
                         </ul>
                         <button type="button" class="btn btn-success shiftadd-button">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -86,11 +86,59 @@
 <script src="js/jquery-2.0.3.js"></script>
 <script src="js/bootstrap.js"></script>
 <script>
+    var hour = 0;
+
+    var shifts = [
+        ["Shift 1", 4],
+        ["Shift 2", 4],
+        ["Shift 3", 6]
+    ];
+
     function setDropdown(i)
     {
-        $("#dropdown-button").data(i.toString());
-        $("#dropdown-button").html(i.toString() + 'h <span class="caret"></span>');
+        var btn = $("#dropdown-button");
+        btn.data(i.toString());
+        btn.html(i.toString() + 'h <span class="caret"></span>');
     }
+
+    function addShift(name, style, length, count)
+    {
+        var shft = "";
+        shft += '<div class="col-md-' + (length/2) + ' shift shift-' + style  + '">';
+        shft += '<input id="checkbox' + count + '" type="checkbox">';
+        shft += '<label for="checkbox' + count + '">' + name + ' (' + hour + '-' + (hour+length) + ')</label>';
+        shft += '</div>';
+        $("#shifts").append(shft);
+        hour += parseInt(length);
+    }
+
+    function clearAll()
+    {
+        $("#shifts").empty();
+    }
+
+    function shiftAll(start)
+    {
+        hour = parseInt(start);
+        if (hour > 0) {
+            $("#shifts").append('<div class="col-md-' + Math.floor(hour/2) + '"></div>');
+        }
+        for (var i=0; i<shifts.length; i++)
+        {
+            if ((hour + shifts[i][1]) <= 24)
+                addShift(shifts[i][0], i+1, shifts[i][1], i);
+        }
+    }
+
+    function reShift()
+    {
+        clearAll();
+        shiftAll(parseInt($("#shiftstart-time").val()));
+    }
+
+    $(document).ready(function() {
+        shiftAll(0);
+    });
 </script>
 
 </body>
