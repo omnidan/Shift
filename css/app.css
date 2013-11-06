@@ -21,3 +21,17 @@
     padding: 0 0 0 3px;
     border-left: 1px solid #808080;
 }
+
+.row .shiftadd {
+    position: absolute;
+    left: 0;
+    top: 5px;
+}
+
+.row .shiftadd-button {
+    margin-left: -4px !important;
+}
+
+.row .dropdown-button {
+    border-radius: 0;
+}
