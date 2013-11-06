@@ -1,0 +1,23 @@
+.row .shift {
+    line-height: 50px;
+    text-align: center;
+}
+
+.row .shift-1 {
+    background-color: #2ecc71;
+}
+
+.row .shift-2 {
+    background-color: #3498db;
+}
+
+.row .shift-3 {
+    background-color: #e74c3c;
+}
+
+.row .time {
+    color: #808080;
+    margin: 0;
+    padding: 0 0 0 3px;
+    border-left: 1px solid #808080;
+}
