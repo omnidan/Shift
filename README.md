@@ -1,5 +1,10 @@
-Shift - simple shift-based time scheduling for busy people
-==========================================================
+Shift
+=====
+
+_simple shift-based time scheduling for busy people_
+
+What is Shift?
+--------------
 
 Shift is an application that makes scheduling simple. Schedule your day in shifts, automatically add breaks when they
 make sense, automatically sort your tasks into shifts, and have your shifts ready when you wake up.
