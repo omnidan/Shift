@@ -91,7 +91,7 @@
     var shiftNext = false;
 
     var shifts = [
-        ["Shift 1", 4],
+        ["Shift 1", 2],
         ["Shift 2", 4],
         ["Shift 3", 6]
     ];
@@ -111,10 +111,10 @@
             shft += ' shift-half';
             shiftNext = false;
         }
-        shft += '">';
+        shft += '"><div class="shift-contents">';
         shft += '<input id="checkbox' + count + '" type="checkbox">';
         shft += '<label for="checkbox' + count + '">' + name + ' (' + hour + '-' + (hour+length) + ')</label>';
-        shft += '</div>';
+        shft += '</div></div>';
         $("#shifts").append(shft);
         hour += parseInt(length);
     }
